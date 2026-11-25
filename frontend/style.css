@@ -1,0 +1,79 @@
+*{box-sizing:border-box}
+:root{font:15px/1.55 "Microsoft YaHei UI","Segoe UI",sans-serif;color:#202a38;background:#f3f5f8}
+[hidden]{display:none!important}
+body{margin:0}
+main{max-width:920px;margin:auto;padding:26px clamp(20px,5vw,55px)}
+header,.task-toolbar,.summary,.actions,.dialog-actions{display:flex;align-items:center;gap:12px}
+header,.summary{justify-content:space-between}
+.brand{font-size:18px;font-weight:700}
+section{margin-top:26px;padding:clamp(24px,4vw,38px);border:1px solid #e0e5ec;border-radius:20px;background:#fff}
+#empty{text-align:center;padding-block:80px}
+h1{font-size:clamp(25px,4vw,36px);line-height:1.25;margin:24px 0;overflow-wrap:anywhere}
+#empty h1,h2{margin-top:0}
+p,footer,.task-toolbar label{color:#556375}
+footer{margin-top:19px;font-size:13px}
+button,select,input{font:inherit;color:inherit;background:#fff;border:1px solid #cbd4df;border-radius:8px;padding:8px 12px;min-width:0}
+button{cursor:pointer;white-space:nowrap}
+button:hover:not(:disabled){filter:brightness(.95)}
+button:disabled{opacity:.48;cursor:default}
+:focus-visible{outline:3px solid #477ecc;outline-offset:2px}
+.primary{background:#244974;border-color:#244974;color:#fff}
+.danger{background:#a53745;border-color:#a53745;color:#fff}
+.reset{margin-left:auto}
+#tasks{max-width:50%}
+.summary{font-weight:600;margin-bottom:10px}
+#percent{font-size:23px;color:#244974}
+#track{height:14px;border-radius:20px;background:#e6ebf0;overflow:hidden}
+#fill{height:100%;background:#9fc7fa;border-radius:inherit}
+#steps{display:grid;grid-template-columns:repeat(var(--size),minmax(0,1fr));gap:4px;padding:0;margin:12px 0 22px;list-style:none;text-align:center}
+#steps li{display:grid;justify-items:center;align-content:start;gap:5px;padding:7px 3px;border-radius:10px;overflow-wrap:anywhere}
+#steps .current{background:#e8f2ff;color:#183d69;font-weight:700}
+.node{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#e9edf2;color:#445366;font-size:13px}
+.done .node{background:#b9d8ff;color:#163f70}
+.current .node{background:#244974;color:white}
+#status{min-height:24px;margin:0 0 18px;color:#244974;font-weight:600;overflow-wrap:anywhere}
+dialog{width:min(480px,calc(100vw - 36px));max-height:calc(100vh - 36px);border:1px solid #cbd4df;border-radius:16px;padding:24px;color:inherit}
+dialog::backdrop{background:#1b294d66}
+form label{display:block;margin:7px 0 3px}
+#task-name{width:100%}
+.keyword-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(110px,.65fr);gap:8px}
+.keyword-row select{width:100%}
+.dialog-actions{justify-content:flex-end;margin-top:22px}
+.actions{flex-wrap:wrap}
+[role=alert]{color:#a12638}
+
+
+.header-actions{display:flex;gap:8px}
+body.compact main{padding:8px 10px}
+body.compact section{margin-top:7px;padding:8px 11px;border-radius:13px}
+body.compact h1{font-size:18px;margin:0 0 4px}
+body.compact #task h1{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+body.compact #empty{padding-block:23px}
+body.compact #track{height:11px}
+body.compact .summary{margin-bottom:5px}
+body.compact #percent{font-size:19px}
+body.compact #steps{margin:3px 0 4px}
+body.compact #steps li{gap:1px;padding:2px 1px}
+body.compact #steps li span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+body.compact .node{width:19px;height:19px}
+body.compact #status{margin:0 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.compact button{padding:5px 9px}
+body.compact footer,body.compact .task-toolbar,body.compact #task .reset,body.compact #task:not([hidden])~footer{display:none}
+body.compact:has(#task:not([hidden])) #new{display:none}
+
+body.compact{font-size:13px}
+body.compact .brand{font-size:15px}
+body.compact button{font-size:13px;line-height:1.3}
+body.compact #status{min-height:0}
+body.compact .node{font-size:11px}
+body.compact .actions{gap:8px}
+body.compact .summary{margin-bottom:3px}
+
+
+#fill{background:var(--progress-fill,#9fc7fa)}
+.done .node{background:var(--progress-node,#b9d8ff);color:#273547}
+body[data-progress-color="red"]{--progress-fill:#f2a9ad;--progress-node:#f6c4c7}
+body[data-progress-color="yellow"]{--progress-fill:#f4ce73;--progress-node:#fae0a5}
+.color-setting{display:flex;align-items:center;gap:9px}
+.color-setting select{padding:4px 8px}
+footer p{margin:8px 0 0}

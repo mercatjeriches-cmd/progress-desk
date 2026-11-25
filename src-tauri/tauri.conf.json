@@ -1,0 +1,27 @@
+{
+  "productName": "进度桌面",
+  "version": "0.1.0",
+  "identifier": "local.progressdesk.app",
+  "build": {
+    "frontendDist": "../frontend"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "进度桌面",
+        "width": 370,
+        "height": 250,
+        "minWidth": 340,
+        "minHeight": 235,
+        "alwaysOnTop": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self' ipc: http://ipc.localhost"
+    },
+    "withGlobalTauri": true
+  },
+  "bundle": {
+    "active": false
+  }
+}

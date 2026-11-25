@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>进度桌面</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.mjs"></script>
+</head>
+<body class="compact">
+<main>
+  <header><span class="brand">进度桌面</span><div class="header-actions"><button id="new" class="primary">新建任务</button><button id="mode" aria-expanded="false">展开管理</button></div></header>
+  <p id="storage-error" role="alert" hidden></p>
+  <section id="empty"><h1>从一个任务开始</h1><p>为学习或论文任务设置 3 至 5 节，逐节记录进度。</p></section>
+  <section id="task" hidden>
+    <div class="task-toolbar"><label for="tasks">切换任务</label><select id="tasks"></select><button id="edit">编辑任务</button></div>
+    <h1 id="title"></h1>
+    <div class="summary"><span id="count"></span><strong id="percent"></strong></div>
+    <div id="track" role="progressbar" aria-label="任务进度" aria-valuemin="0"><div id="fill"></div></div>
+    <ol id="steps"></ol>
+    <p id="status" role="status"></p>
+    <div class="actions"><button id="complete" class="primary">完成当前项</button><button id="undo">撤销上一次完成</button><button id="reset" class="reset">重新开始</button></div>
+  </section>
+  <footer><div class="color-setting"><label for="progress-color">进度条颜色</label><select id="progress-color"><option value="blue">浅蓝</option><option value="red">浅红</option><option value="yellow">浅黄</option></select></div><p>进度自动保存在本机</p></footer><p id="window-error" role="alert" hidden></p>
+</main>
+<dialog id="editor">
+  <form id="task-form">
+    <h2 id="editor-title"></h2>
+    <label for="task-name">任务名称</label><input id="task-name" required maxlength="80" placeholder="例如：毕业论文">
+    <div id="size-row"><label for="size">节数</label><select id="size"><option value="3">3 节</option><option value="4">4 节</option><option value="5">5 节</option></select></div>
+    <div id="keywords"></div>
+    <p id="form-error" role="alert" hidden></p>
+    <div class="dialog-actions"><button type="button" data-close="editor">取消</button><button class="primary">保存任务</button></div>
+  </form>
+</dialog>
+<dialog id="confirm">
+  <h2>重新开始任务？</h2>
+  <p>所有已完成项将恢复为未完成，任务名称和关键词会保留。</p>
+  <div class="dialog-actions"><button data-close="confirm" autofocus>取消</button><button id="confirm-reset" class="danger">确认重新开始</button></div>
+</dialog>
+</body>
+</html>
+
+
+
